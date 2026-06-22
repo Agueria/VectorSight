@@ -106,9 +106,22 @@ def test_project_metadata_uses_vectorsight_name_and_description() -> None:
     assert 'name = "vectorsight"' in pyproject
     assert "VectorSight" in pyproject
     assert "field-ready" in pyproject
-    assert 'license = { file = "LICENSE" }' in pyproject
+    assert 'license = "Apache-2.0"' in pyproject
+    assert 'license-files = ["LICENSE"]' in pyproject
     assert "Apache License" in license_text
     assert "Copyright 2026 Cem Berk Çakır" in license_text
+
+
+def test_project_metadata_supports_package_build_and_console_script() -> None:
+    pyproject = Path("pyproject.toml").read_text(encoding="utf-8")
+
+    assert "[build-system]" in pyproject
+    assert 'build-backend = "setuptools.build_meta"' in pyproject
+    assert 'readme = "README.md"' in pyproject
+    assert "[project.urls]" in pyproject
+    assert 'Repository = "https://github.com/Agueria/VectorSight"' in pyproject
+    assert "[project.scripts]" in pyproject
+    assert 'vectorsight = "field_coordinate.cli:main"' in pyproject
 
 
 def test_cli_replay_prints_existing_jsonl(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:

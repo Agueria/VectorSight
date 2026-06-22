@@ -169,21 +169,27 @@ python -m pip install -e ".[dev]"
 
 ### Commands
 
+After installation, the package exposes the `vectorsight` command. The
+`python -m field_coordinate` form remains available for development.
+
 Calibrate focal length:
 
 ```powershell
+vectorsight calibrate --config config/default.json --known-width-m 0.07 --distance-m 1.05 --observed-width-px 70
 python -m field_coordinate calibrate --config config/default.json --known-width-m 0.07 --distance-m 1.05 --observed-width-px 70
 ```
 
 Run live camera/PX4 estimation:
 
 ```powershell
+vectorsight run --config config/default.json
 python -m field_coordinate run --config config/default.json
 ```
 
 Replay a JSONL session log:
 
 ```powershell
+vectorsight replay --log logs/session.jsonl
 python -m field_coordinate replay --log logs/session.jsonl
 ```
 
@@ -433,21 +439,27 @@ python -m pip install -e ".[dev]"
 
 ### Komutlar
 
+Kurulumdan sonra paket `vectorsight` komutunu sağlar. Geliştirme sırasında
+`python -m field_coordinate` kullanımı da çalışmaya devam eder.
+
 Focal length kalibrasyonu:
 
 ```powershell
+vectorsight calibrate --config config/default.json --known-width-m 0.07 --distance-m 1.05 --observed-width-px 70
 python -m field_coordinate calibrate --config config/default.json --known-width-m 0.07 --distance-m 1.05 --observed-width-px 70
 ```
 
 Canlı kamera/PX4 hesabı:
 
 ```powershell
+vectorsight run --config config/default.json
 python -m field_coordinate run --config config/default.json
 ```
 
 JSONL session log replay:
 
 ```powershell
+vectorsight replay --log logs/session.jsonl
 python -m field_coordinate replay --log logs/session.jsonl
 ```
 

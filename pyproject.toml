@@ -1,16 +1,45 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "vectorsight"
 version = "0.1.0"
 description = "VectorSight is a field-ready vision-to-coordinate system that converts camera detections, focal-length calibration, PX4 telemetry, and reachability logic into reliable target position estimates."
 authors = [{ name = "Cem Berk Çakır" }]
-license = { file = "LICENSE" }
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
+keywords = [
+    "computer-vision",
+    "coordinates",
+    "drone",
+    "mavlink",
+    "px4",
+    "target-geolocation",
+    "uav",
+]
 classifiers = [
-    "License :: OSI Approved :: Apache Software License",
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Image Processing",
+    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
+
+[project.urls]
+Homepage = "https://github.com/Agueria/VectorSight"
+Repository = "https://github.com/Agueria/VectorSight"
+Issues = "https://github.com/Agueria/VectorSight/issues"
+
+[project.scripts]
+vectorsight = "field_coordinate.cli:main"
 
 [project.optional-dependencies]
 vision = [
@@ -25,6 +54,7 @@ hardware = [
     "smbus2>=0.4; platform_system == 'Linux'",
 ]
 dev = [
+    "build>=1.2",
     "opencv-python>=4.7",
     "numpy>=1.21",
     "pymavlink>=2.4",
@@ -35,3 +65,6 @@ dev = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
