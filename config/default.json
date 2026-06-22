@@ -1,0 +1,37 @@
+{
+  "resolution_preset": "HD_720",
+  "geometry_mode": "REFINED",
+  "camera_index": 0,
+  "camera_fps": 30,
+  "camera_codec": "MJPG",
+  "horizontal_fov_deg": 62.2,
+  "vertical_fov_deg": 48.8,
+  "target_real_size_m": 0.07,
+  "focal_px": null,
+  "hsv_ranges": [
+    {
+      "lower": [0, 122, 161],
+      "upper": [53, 255, 255]
+    }
+  ],
+  "threshold_value": 70,
+  "blur_kernel": 5,
+  "min_area_px": 5000,
+  "max_area_px": 1500000,
+  "mavlink_ports": [
+    "/dev/tty.usbmodem1201",
+    "/dev/ttyACM0",
+    "/dev/ttyACM1"
+  ],
+  "mavlink_baud": 115200,
+  "mavlink_stream_rate_hz": 10,
+  "log_path": "logs/session.jsonl",
+  "preview": true,
+  "gpio_enabled": false,
+  "reachable_led_pin": 21,
+  "found_gpio_pin": 3,
+  "i2c_enabled": false,
+  "i2c_bus": 0,
+  "i2c_write_address": 80,
+  "i2c_register": 0
+}
